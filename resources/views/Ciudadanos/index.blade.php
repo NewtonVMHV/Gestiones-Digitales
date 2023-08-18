@@ -4,9 +4,7 @@
         <h1 class="h2">Gestión de ciudadanos</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                @can('ciudadanos-create')
-                    <a class="btn btn-sm btn-outline-secondary" href="{{ route('ciudadanos.create') }}"> Crear ciudadano <i class='bx bxs-user-plus'></i></a>
-                @endcan
+                <a class="btn btn-sm btn-outline-secondary" href="{{ route('ciudadanos.create') }}"> Crear ciudadano <i class='bx bxs-user-plus'></i></a>
             </div>
         </div>
     </div>

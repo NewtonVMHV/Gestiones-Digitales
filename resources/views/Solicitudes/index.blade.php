@@ -8,15 +8,6 @@
         </div>
     </div>
 </div>
-<form role="search">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Ingrese la curp" aria-label="Example text with button addon" aria-describedby="button-addon1" id="searchSolicitud" name="SearchSolicitud"/>
-        <button type="submit" class="btn btn-outline-primary" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-            <i class='bx bx-search-alt'></i>
-        </button>
-    </div>
-</form>
-<hr>
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>

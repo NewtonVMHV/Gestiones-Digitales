@@ -25,8 +25,6 @@ class TCiudadanosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('permission:ciudadanos-list|ciudadanos-create|ciudadanos-edit|ciudadanos-delete', ['only' => ['index','store']]);
-        $this->middleware('permission:ciudadanos-create', ['only' => ['create','store']]);
         $this->middleware('permission:ciudadanos-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:ciudadanos-delete', ['only' => ['eliminar','destroy']]);
     }

@@ -197,18 +197,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('ciudadanos.index')}}">
-                                <span data-feather="users"></span>
-                                Ciudadanos
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('diputados.index') }}">
                                 <span data-feather="layers"></span>
                                 Diputados
                             </a>
                         </li>
                         @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('ciudadanos.index')}}">
+                                <span data-feather="users"></span>
+                                Ciudadanos
+                            </a>
+                        </li>
                     </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Solicitudes guardados</span>
