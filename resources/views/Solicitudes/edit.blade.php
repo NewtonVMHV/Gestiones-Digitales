@@ -24,17 +24,6 @@ crossorigin=""/>
     @method('put')
     <div class="row mb-3">
         <div class="col">
-            <label class="form-label" for="Curp">Curp</label>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" id="Curp" name="Curp" onblur="buscar_datos();" value="{{ $tSolicitud->Curp }}" required/>
-                <button class="btn btn-outline-primary" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                    <i class='bx bx-search-alt'></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
             <label for="Nombres" class="form-label is-required">Nombres</label>
             <input type="text" class="form-control" id="Nombres" name="Nombres" value="{{ $tSolicitud->Nombres }}" required>
         </div>
@@ -64,11 +53,11 @@ crossorigin=""/>
     <div class="row mb-3">
         <div class="col">
             <label for="latitude" class="control-label is-required">Latitud</label>
-            <input id="latitude" type="text" class="form-control" name="latitude" value="{{$tSolicitud->latitude}}" readonly required>
+            <input id="latitude" type="text" class="form-control" name="latitude" value="{{$tSolicitud->latitude}}" required>
         </div>
         <div class="col">
             <label for="longitude" class="control-label is-required">Longitud</label>
-                <input id="longitude" type="text" class="form-control" name="longitude" value="{{ $tSolicitud->longitude }}" readonly required>
+                <input id="longitude" type="text" class="form-control" name="longitude" value="{{ $tSolicitud->longitude }}" required>
         </div>
     </div>
     <br>

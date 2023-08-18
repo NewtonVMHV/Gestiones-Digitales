@@ -104,17 +104,6 @@ Route::put('/Ciudadano/{tCiudadnos}', [App\Http\Controllers\TCiudadanosControlle
 Route::get('/Ciudadano/{tCiudadnos}/Eliminar', [App\Http\Controllers\TCiudadanosController::class, 'eliminar'])->name('ciudadanos.eliminar');
 Route::delete('/Ciudadano/{tCiudadnos}', [App\Http\Controllers\TCiudadanosController::class, 'destroy'])->name('ciudadanos.destroy');
 
-//Imagenes
-Route::get('/Imagenes',[App\Http\Controllers\TImagenesController::class, 'index'])->name('imagenes.index');
-Route::get('/Imagenes/Agregar', [App\Http\Controllers\TImagenesController::class, 'create'])->name('imagenes.create');
-Route::post('/Imagenes', [App\Http\Controllers\TImagenesController::class, 'store'])->name('imagenes.store');
-Route::get('/Imagenes/{tImagenes}/Detalles', [App\Http\Controllers\TImagenesController::class, 'show'])->name('imagenes.show');
-Route::get('/Imagenes/{tImagenes}/Editar',[App\Http\Controllers\TImagenesController::class, 'edit'])->name('imagenes.edit');
-Route::get('/Imagenes/Autocomplete',[App\Http\Controllers\TImagenesController::class, 'autocomplete'])->name('imagenes.autocomplete');
-Route::put('/Imagenes/{tImagenes}', [App\Http\Controllers\TImagenesController::class, 'update'])->name('imagenes.update');
-Route::get('/Imagenes/{tImagenes}/Eliminar', [App\Http\Controllers\TImagenesController::class, 'eliminar'])->name('imagenes.eliminar');
-Route::delete('/Imagenes/{tImagenes}', [App\Http\Controllers\TImagenesController::class, 'destroy'])->name('imagenes.destroy');
-
 //Diputados
 Route::get('/Diputados',[App\Http\Controllers\TDiputadosController::class, 'index'])->name('diputados.index');
 Route::get('/Diputados/Agregar', [App\Http\Controllers\TDiputadosController::class, 'create'])->name('diputados.create');

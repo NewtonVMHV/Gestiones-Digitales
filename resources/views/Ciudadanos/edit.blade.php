@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{route('ciudadanos.update',$tCiudadnos)}}" method="post">
+    <form action="{{route('ciudadanos.update',$tCiudadnos)}}" method="post"  enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="row mb-3">
@@ -34,6 +34,22 @@
         </div>
         <div class="row mb-3">
             <div class="col">
+                <label class="form-label" for="fotografia">Fotografia de la persona</label>
+                <input type="file" class="form-control" id="fotografia" name="fotografia" accept="image/*" required/>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label" for="inef">INE frente</label>
+                <input type="file" class="form-control" id="inef" name="inef" accept="image/*" required/>
+            </div>
+            <div class="col">
+                <label class="form-label" for="inea">INE trasera</label>
+                <input type="file" class="form-control" id="inea" name="inea" accept="image/*" required/>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
                 <label for="Direccion" class="form-label">Dirección</label>
                 <input type="text" class="form-control" id="Direccion" name="Direccion" value="{{$tCiudadnos->Direccion}}">
             </div>
@@ -44,24 +60,11 @@
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label for="Codigop" class="form-label is-required">Codigo Postal</label>
-                <input type="text" class="form-control" id="Codigop" name="Codigop" value="{{$tCiudadnos->Codigop}}" required>
-            </div>
-            <div class="col">
                 <label for="Seccion" class="form-label is-required">Sección</label>
                 <input type="number" class="form-control" id="Seccion" name="Seccion" value="{{$tCiudadnos->Seccion}}" required>
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col">
-                <label for="Localidad" class="form-label is-required">Selecciona la localidad</label>
-                <select class="form-select" aria-label="Selecciona la localidad" name="Localidad" required>
-                    <option>{{$tCiudadnos->Localidad}}</option>
-                    @foreach($localidad as $item)
-                        <option value="{{$item->NombreLoc}}">{{$item->NombreLoc}}</option>
-                    @endforeach
-                </select>
-            </div>
             <div class="col">
                 <label for="Municipio" class="form-label is-required">Selecciona el municipio</label>
                 <select class="form-select" aria-label="Selecciona el municipio" name="Municipio" required>
@@ -73,15 +76,6 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col">
-                <label for="Distrito" class="form-label is-required">Selecciona el distrito</label>
-                <select class="form-select" aria-label="Selecciona el distrito" name="Distrito" required>
-                    <option>{{$tCiudadnos->Distrito}}</option>
-                    @foreach($distrito as $item)
-                        <option value="{{$item->Nombre}}">{{$item->Nombre}}</option>
-                    @endforeach
-                </select>
-            </div>
             <div class="col">
                 <label for="Celular" class="form-label">Número de celular</label>
                 <input type="text" class="form-control" id="Celular" name="Celular" maxlength="10" value="{{$tCiudadnos->Celular}}">

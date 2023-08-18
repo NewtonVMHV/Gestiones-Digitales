@@ -10,6 +10,6 @@ class tSolicitud extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Curp','Nombres','Apellidos','FechaSol','Solicitud','Observaciones','Estatus','address', 'latitude', 'longitude'
+        'Nombres','Apellidos','FechaSol','Solicitud','Observaciones','Estatus','address', 'latitude', 'longitude'
     ];
 }

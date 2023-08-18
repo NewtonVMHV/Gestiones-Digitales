@@ -31,7 +31,7 @@ class TSolicitudController extends Controller
     {
         //
         $search = $request->SearchSolicitud;
-        $tSolicitud = tSolicitud::where('Curp','LIKE','%'.$search.'%')->paginate(10);
+        $tSolicitud = tSolicitud::paginate(10);
         return view('Solicitudes.index', compact('tSolicitud'));
     }
 
@@ -58,7 +58,6 @@ class TSolicitudController extends Controller
     {
         //
         $tSolicitud = tSolicitud::create([
-            'Curp' => $request->Curp,
             'Nombres' => $request->Nombres,
             'Apellidos' => $request->Apellidos,
             'FechaSol' => $request->FechaSol,
@@ -98,7 +97,6 @@ class TSolicitudController extends Controller
     {
         //
         $tSolicitud->update([
-            'Curp' => $request->Curp,
             'Nombres' => $request->Nombres,
             'Apellidos' => $request->Apellidos,
             'FechaSol' => $request->FechaSol,

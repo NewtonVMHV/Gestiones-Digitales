@@ -203,12 +203,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('imagenes.index') }}">
-                                <span data-feather="layers"></span>
-                                Imagenes
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('diputados.index') }}">
                                 <span data-feather="layers"></span>
                                 Diputados

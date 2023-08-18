@@ -12,6 +12,8 @@ use App\Models\tMunicipios;
 use App\Models\tSecciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class TCiudadanosController extends Controller
 {
@@ -58,19 +60,34 @@ class TCiudadanosController extends Controller
     public function store(StoreCiudadanosRequest $request)
     {
         //
-        $tCiudadanos = tCiudadanos::create([
-           'Curp' => $request->Curp,
-            'Nombres'=> $request->Nombres,
-            'Apellidos'=> $request->Apellidos,
-            'Direccion' => $request->Direccion,
-            'Colonia' => $request->Colonia,
-            'Codigop' => $request->Codigop,
-            'Seccion' => $request->Seccion,
-            'Localidad' => $request->Localidad,
-            'Municipio' => $request->Municipio,
-            'Distrito' => $request->Distrito,
-            'Celular' => $request->Celular
-        ]);
+        if ($request->hasfile('fotografia')|$request->hasfile('inea')|$request->hasfile('inef')) {
+            $fotografia = $request->file('fotografia');
+            $nombreimagen1 = time().'_'.$fotografia->getClientOriginalName();
+            $fotografia->move(public_path('ciudadanos/'),$nombreimagen1);
+
+            $inea = $request->file('inea');
+            $nombreimagen2 = time().'_'.$inea->getClientOriginalName();
+            $inea->move(public_path('credencial/'),$nombreimagen2);
+
+            $inef = $request->file('inef');
+            $nombreimagen3 = time().'_'.$inef->getClientOriginalName();
+            $inef->move(public_path('credencial/'),$nombreimagen3);
+
+            $tCiudadanos = tCiudadanos::create([
+                'Curp' => $request->Curp,
+                 'Nombres'=> $request->Nombres,
+                 'Apellidos'=> $request->Apellidos,
+                 'fotografia'=>$nombreimagen1,
+                 'inef' => $nombreimagen3,
+                 'inea' => $nombreimagen2,
+                 'Direccion' => $request->Direccion,
+                 'Colonia' => $request->Colonia,
+                 'Seccion' => $request->Seccion,
+                 'Municipio' => $request->Municipio,
+                 'Celular' => $request->Celular
+             ]);
+
+        }
 
         return redirect('/Ciudadano')->with('success','Ciudadano creado exitosamente');
     }
@@ -103,19 +120,49 @@ class TCiudadanosController extends Controller
     public function update(UpdateCiudadanosRequest $request, tCiudadanos $tCiudadnos)
     {
         //
-        $tCiudadnos->update([
-            'Curp' => $request->Curp,
-            'Nombres'=> $request->Nombres,
-            'Apellidos'=> $request->Apellidos,
-            'Direccion' => $request->Direccion,
-            'Colonia' => $request->Colonia,
-            'Codigop' => $request->Codigop,
-            'Seccion' => $request->Seccion,
-            'Localidad' => $request->Localidad,
-            'Municipio' => $request->Municipio,
-            'Distrito' => $request->Distrito,
-            'Celular' => $request->Celular
-        ]);
+        if ($request->hasfile('fotografia')|$request->hasfile('inea')|$request->hasfile('inef')) {
+            # code...
+
+            if(File::exists('ciudadanos/'.$tCiudadnos->fotografia)){
+                File::delete('ciudadanos/'.$tCiudadnos->fotografia);
+            }
+
+            if (File::exists('credencial/'.$tCiudadnos->inea)) {
+                # code...
+                File::delete('credencial/'.$tCiudadnos->inea);
+            }
+
+            if (File::exists('credencial/'.$tCiudadnos->inef)) {
+                # code...
+                File::delete('credencial/'.$tCiudadnos->inef);
+            }
+
+            $fotografia = $request->file('fotografia');
+            $nombreimagen1 = time().'_'.$fotografia->getClientOriginalName();
+            $fotografia->move(public_path('ciudadanos/'),$nombreimagen1);
+
+            $inea = $request->file('inea');
+            $nombreimagen2 = time().'_'.$inea->getClientOriginalName();
+            $inea->move(public_path('credencial/'),$nombreimagen2);
+
+            $inef = $request->file('inef');
+            $nombreimagen3 = time().'_'.$inef->getClientOriginalName();
+            $inef->move(public_path('credencial/'),$nombreimagen3);
+
+            $tCiudadnos->update([
+                'Curp' => $request->Curp,
+                'Nombres'=> $request->Nombres,
+                'Apellidos'=> $request->Apellidos,
+                'fotografia'=>$nombreimagen1,
+                'inef' => $nombreimagen3,
+                'inea' => $nombreimagen2,
+                'Direccion' => $request->Direccion,
+                'Colonia' => $request->Colonia,
+                'Seccion' => $request->Seccion,
+                'Municipio' => $request->Municipio,
+                'Celular' => $request->Celular
+            ]);
+        }
 
         return redirect('/Ciudadano')->with('success','Ciudadano actualizado exitosamente');
     }
@@ -135,6 +182,20 @@ class TCiudadanosController extends Controller
     public function destroy(tCiudadanos $tCiudadnos)
     {
         //
+        if(File::exists('ciudadanos/'.$tCiudadnos->fotografia)){
+            File::delete('ciudadanos/'.$tCiudadnos->fotografia);
+        }
+
+        if (File::exists('credencial/'.$tCiudadnos->inea)) {
+            # code...
+            File::delete('credencial/'.$tCiudadnos->inea);
+        }
+
+        if (File::exists('credencial/'.$tCiudadnos->inef)) {
+            # code...
+            File::delete('credencial/'.$tCiudadnos->inef);
+        }
+
         $tCiudadnos->delete();
         return redirect('/Ciudadano')->with('success','Ciudadano eliminado exitosamente');
     }

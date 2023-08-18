@@ -10,6 +10,6 @@ class tCiudadanos extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Curp','Nombres','Apellidos','Direccion','Colonia','Codigop','Seccion','Localidad','Municipio','Distrito','Celular'
+        'Curp','Nombres','Apellidos','fotografia','inef','inea','Direccion','Colonia','Seccion','Municipio','Celular'
     ];
 }

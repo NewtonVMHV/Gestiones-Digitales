@@ -25,11 +25,10 @@ class UpdateCiudadanosRequest extends FormRequest
             'Curp' => 'required|string|max:18',
             'Nombres' => 'required',
             'Apellidos' => 'required',
-            'Codigop' => 'required|max:5',
+            'Direccion' => 'required',
+            'Celular' => 'required',
             'Seccion' => 'required|max:5',
-            'Localidad' => 'required|string',
             'Municipio' => 'required|string',
-            'Distrito' => 'required|string'
         ];
     }
 }

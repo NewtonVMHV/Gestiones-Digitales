@@ -25,15 +25,15 @@
 <div class="table-responsive">
     <table id="tabla" class="table table-striped table-sm">
         <thead>
-        <tr>
-            <th scope="col">Acciones</th>
-            <th scope="col">#</th>
-            <th scope="col">Curp</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Fecha de solicitud</th>
-            <th scope="col">Estatus</th>
-        </tr>
+            <tr>
+                <th scope="col">Acciones</th>
+                <th scope="col">#</th>
+                <th scope="col">Curp</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Fecha de solicitud</th>
+                <th scope="col">Estatus</th>
+            </tr>
         </thead>
         <tbody>
         @foreach ($tSolicitud as $item)

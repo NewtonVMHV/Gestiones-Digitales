@@ -22,7 +22,6 @@ class StoreSolicitudRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Curp' => 'required|string|max:18',
             'Nombres' => 'required',
             'Apellidos' => 'required',
             'address'   => 'nullable|max:255',
