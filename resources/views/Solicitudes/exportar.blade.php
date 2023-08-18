@@ -31,7 +31,6 @@
     <table class="table table-sm">
         <tbody>
             <tr><td><strong>Datos de la persona que require el apoyo</strong></td></tr>
-            <tr><td><strong>Curp</strong></td><td>{{ $tSolicitud->Curp }}</td></tr>
             <tr><td><strong>Nombre Completo</strong></td><td>{{ $tSolicitud->Nombres }} {{ $tSolicitud->Apellidos }}</td></tr>
             <tr><td><strong>Domicilio</strong></td><td>{{ $tSolicitud->address }}</td></tr>
         </tbody>
