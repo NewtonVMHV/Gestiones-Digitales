@@ -63,7 +63,6 @@
                 <th scope="col">Dirección</th>
                 <th scope="col">Colonia</th>
                 <th scope="col">Sección</th>
-                <th scope="col">Localidad</th>
                 <th scope="col">Municipio</th>
             </tr>
             </thead>
@@ -77,7 +76,6 @@
                     <td>{{$item->Direccion}}</td>
                     <td>{{$item->Colonia}}</td>
                     <td>{{$item->Seccion}}</td>
-                    <td>{{$item->Localidad}}</td>
                     <td>{{$item->Municipio}}</td>
                 </tr>
             @endforeach
