@@ -23,16 +23,18 @@
         <p>Sin más por el momento me despido de usted, agradeciendole de antemano la atención prestada a mi solicitud
             y esperando una respuesta favorable de la misma.
         </p>
+        <p>{{ $tSolicitud->Observaciones }}</p>
     </div>
     <div class="text-center">
         <P>Atentamente</P>
         <p>{{ $tSolicitud->Nombres }} {{ $tSolicitud->Apellidos }}</p>
     </div>
+    <p><strong>Datos de la persona que require el apoyo</strong></p>
     <table class="table table-sm">
         <tbody>
-            <tr><td><strong>Datos de la persona que require el apoyo</strong></td></tr>
             <tr><td><strong>Nombre Completo</strong></td><td>{{ $tSolicitud->Nombres }} {{ $tSolicitud->Apellidos }}</td></tr>
             <tr><td><strong>Domicilio</strong></td><td>{{ $tSolicitud->address }}</td></tr>
+            <tr><td><strong>Tipo de Gestión</strong><td>{{ $tSolicitud->tipo_gestion }}</td></td></tr>
         </tbody>
     </table>
 </body>
