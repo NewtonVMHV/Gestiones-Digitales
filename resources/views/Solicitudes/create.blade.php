@@ -23,6 +23,17 @@
     @csrf
     <div class="row mb-3">
         <div class="col">
+            <label for="tipo_gestion" class="form-label is-required">Selecciona la gestión</label>
+            <select class="form-select" aria-label="Default select example" name="tipo_gestion" required>
+                <option></option>
+                @foreach ($gestiones as $item)
+                    <option value="{{ $item->nombre }}">{{ $item->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
             <label for="Nombres" class="form-label is-required">Nombres</label>
             <input type="text" class="form-control" id="Nombres" name="Nombres" required>
         </div>
@@ -34,7 +45,7 @@
     <div class="row mb-3">
         <div class="col">
             <label for="address" class="control-label is-required">Dirección</label>
-            <textarea id="address" class="form-control" name="address" rows="4" required></textarea>
+            <input type="text" class="form-control" id="address" name="address" required>
         </div>
     </div>
     <div class="row mb-3">

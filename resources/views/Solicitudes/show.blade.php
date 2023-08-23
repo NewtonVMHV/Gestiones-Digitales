@@ -11,7 +11,7 @@
 </div>
 <table class="table table-sm">
     <tbody>
-        <tr><td><strong>Curp</strong></td><td>{{ $tSolicitud->Curp }}</td></tr>
+        <tr><td><strong>Tipo de gestión</strong></td><td>{{ $tSolicitud->tipo_gestion }}</td></tr>
         <tr><td><strong>Nombre Completo</strong></td><td>{{ $tSolicitud->Nombres }} {{ $tSolicitud->Apellidos }}</td></tr>
         <tr><td><strong>Fecha de solicitud</strong></td><td>{{ $tSolicitud->FechaSol }}</td></tr>
         <tr><td><strong>Solicitud</strong></td><td>{{ $tSolicitud->Solicitud }}</td></tr>

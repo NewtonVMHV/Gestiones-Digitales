@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('t_solicituds', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('tipo_gestion');
             $table->string('Nombres');
             $table->string('Apellidos');
             $table->date('FechaSol');

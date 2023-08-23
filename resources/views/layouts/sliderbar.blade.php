@@ -167,6 +167,12 @@
                         @endif
                         @if (Auth::user()->hasRole('Capturista')|Auth::user()->hasRole('capturista')|Auth::user()->hasRole('Analista')|Auth::user()->hasRole('analista')|Auth::user()->hasRole('Admin'))
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('gestiones.index')}}">
+                                <span data-feather="git-pull-request"></span>
+                                Tipo de Gestiones
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('distrito.index')}}">
                                 <span data-feather="bar-chart-2"></span>
                                 Distritos

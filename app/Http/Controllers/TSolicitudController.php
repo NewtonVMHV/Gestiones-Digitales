@@ -6,6 +6,7 @@ use App\Http\Requests\StoreSolicitudRequest;
 use App\Http\Requests\UpdateSolicitudRequest;
 use App\Models\tSolicitud;
 use App\Models\tCiudadanos;
+use App\Models\Gestiones;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
@@ -43,12 +44,13 @@ class TSolicitudController extends Controller
         //
         $contador = 0;
         $tSolicitud = tSolicitud::all();
+        $gestiones = Gestiones::where('estado','1')->get();
         foreach($tSolicitud as $id){
             $contador = $contador + 1;
         }
         $contador = 'BAHZ-'.'000'.$contador+1;
         
-        return view('Solicitudes.create', compact('contador'));
+        return view('Solicitudes.create', compact('contador','gestiones'));
     }
 
     /**
@@ -58,6 +60,7 @@ class TSolicitudController extends Controller
     {
         //
         $tSolicitud = tSolicitud::create([
+            'tipo_gestion' => $request->tipo_gestion,
             'Nombres' => $request->Nombres,
             'Apellidos' => $request->Apellidos,
             'FechaSol' => $request->FechaSol,
@@ -87,7 +90,8 @@ class TSolicitudController extends Controller
     public function edit(tSolicitud $tSolicitud)
     {
         //
-        return view('Solicitudes.edit', compact('tSolicitud'));
+        $gestiones = Gestiones::where('estado','1')->get();
+        return view('Solicitudes.edit', compact('tSolicitud','gestiones'));
     }
 
     /**
@@ -97,6 +101,7 @@ class TSolicitudController extends Controller
     {
         //
         $tSolicitud->update([
+            'tipo_gestion' => $request->tipo_gestion,
             'Nombres' => $request->Nombres,
             'Apellidos' => $request->Apellidos,
             'FechaSol' => $request->FechaSol,

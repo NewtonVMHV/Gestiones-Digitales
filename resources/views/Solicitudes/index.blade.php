@@ -19,7 +19,6 @@
             <tr>
                 <th scope="col">Acciones</th>
                 <th scope="col">#</th>
-                <th scope="col">Curp</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">Fecha de solicitud</th>
@@ -42,7 +41,6 @@
                     <a class="btn btn-warning" href="{{route('solicitud.export',$item->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Exportar"><i class='bx bx-export'></i></a>
                 </td>
                 <th scope="row">{{ $item->id }}</th>
-                <td>{{ $item->Curp }}</td>
                 <td>{{ $item->Nombres }}</td>
                 <td>{{ $item->Apellidos }}</td>
                 <td>{{$item->FechaSol}}</td>

@@ -24,6 +24,17 @@ crossorigin=""/>
     @method('put')
     <div class="row mb-3">
         <div class="col">
+            <label for="tipo_gestion" class="form-label is-required">Selecciona la gestión</label>
+            <select class="form-select" aria-label="Default select example" name="tipo_gestion" required>
+                <option>{{ $tSolicitud->tipo_gestion }}</option>
+                @foreach ($gestiones as $item)
+                    <option value="{{ $item->nombre }}">{{ $item->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
             <label for="Nombres" class="form-label is-required">Nombres</label>
             <input type="text" class="form-control" id="Nombres" name="Nombres" value="{{ $tSolicitud->Nombres }}" required>
         </div>

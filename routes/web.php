@@ -114,6 +114,16 @@ Route::put('/Diputados/{tDiputados}', [App\Http\Controllers\TDiputadosController
 Route::get('/Diputados/{tDiputados}/Eliminar', [App\Http\Controllers\TDiputadosController::class, 'eliminar'])->name('diputados.eliminar');
 Route::delete('/Diputados/{tDiputados}', [App\Http\Controllers\TDiputadosController::class, 'destroy'])->name('diputados.destroy');
 
+//Gestiones
+Route::get('/Gestiones',[App\Http\Controllers\GestionesController::class, 'index'])->name('gestiones.index');
+Route::get('/Gestiones/Agregar', [App\Http\Controllers\GestionesController::class, 'create'])->name('gestiones.create');
+Route::post('/Gestiones', [App\Http\Controllers\GestionesController::class, 'store'])->name('gestiones.store');
+Route::get('/Gestiones/{gestiones}/Detalles', [App\Http\Controllers\GestionesController::class, 'show'])->name('gestiones.show');
+Route::get('/Gestiones/{gestiones}/Editar',[App\Http\Controllers\GestionesController::class, 'edit'])->name('gestiones.edit');
+Route::put('/Gestiones/{gestiones}', [App\Http\Controllers\GestionesController::class, 'update'])->name('gestiones.update');
+Route::get('/Gestiones/{gestiones}/Eliminar', [App\Http\Controllers\GestionesController::class, 'eliminar'])->name('gestiones.eliminar');
+Route::delete('/Gestiones/{gestiones}', [App\Http\Controllers\GestionesController::class, 'destroy'])->name('gestiones.destroy');
+
 //Solicitudes
 Route::get('/Solicitudes',[App\Http\Controllers\TSolicitudController::class, 'index'])->name('solicitud.index');
 Route::get('/Solicitudes/Agregar', [App\Http\Controllers\TSolicitudController::class, 'create'])->name('solicitud.create');
