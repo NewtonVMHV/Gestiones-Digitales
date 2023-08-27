@@ -25,6 +25,7 @@
                 <label for="tipo_gestion" class="form-label is-required">Selecciona la gestión</label>
                 <select class="form-select" aria-label="Default select example" name="tipo_gestion" required>
                     <option></option>
+                    <option value="DESCONOCIDO(A)">DESCONOCIDO(A)</option>
                     @foreach ($gestiones as $item)
                         <option value="{{ $item->nombre }}">{{ $item->nombre }}</option>
                     @endforeach
