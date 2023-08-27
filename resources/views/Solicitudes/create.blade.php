@@ -86,14 +86,6 @@
                 <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="1" checked required>
                 <label class="form-check-label" for="Estatus">Pendiente</label>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="2" required>
-                <label class="form-check-label" for="Estatus">En trámite</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="3" required>
-                <label class="form-check-label" for="Estatus">Terminado</label>
-            </div>
         </div>
     </div>
     <div class="d-grid gap-2">

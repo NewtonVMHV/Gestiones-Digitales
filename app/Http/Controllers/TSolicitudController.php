@@ -36,6 +36,16 @@ class TSolicitudController extends Controller
         return view('Solicitudes.index', compact('tSolicitud'));
     }
 
+    public function filterSolicitud(Request $request){
+        $fechaSol = $request->Fecha;
+        $estatus = $request->Estatus;
+
+        $tSolicitud = tSolicitud::where('FechaSol','LIKE','%'.$fechaSol.'%')
+        ->where('Estatus','LIKE','%'.$estatus.'%')->get();
+
+        return view('Solicitudes.FilterSolicitud', compact('tSolicitud'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

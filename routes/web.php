@@ -19,9 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/Solicitud', [App\Http\Controllers\HomeController::class, 'create'])->name('solicitud');
+Route::post('/Solicitud', [App\Http\Controllers\HomeController::class, 'store'])->name('solicitud.home.store');
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
 });
@@ -130,6 +132,7 @@ Route::get('/Solicitudes/Agregar', [App\Http\Controllers\TSolicitudController::c
 Route::post('/Solicitudes', [App\Http\Controllers\TSolicitudController::class, 'store'])->name('solicitud.store');
 Route::get('/Solicitudes/{tSolicitud}/Detalles', [App\Http\Controllers\TSolicitudController::class, 'show'])->name('solicitud.show');
 Route::get('/Solicitudes/Autocomplete',[App\Http\Controllers\TSolicitudController::class, 'autocomplete'])->name('solicitud.autocomplete');
+Route::get('/Solicitudes/Filtrado',[App\Http\Controllers\TSolicitudController::class, 'filterSolicitud'])->name('solicitud.filter');
 Route::get('/Solicitudes/{tSolicitud}/Editar',[App\Http\Controllers\TSolicitudController::class, 'edit'])->name('solicitud.edit');
 Route::put('/Solicitudes/{tSolicitud}', [App\Http\Controllers\TSolicitudController::class, 'update'])->name('solicitud.update');
 Route::get('/Solicitudes/{tSolicitud}/Eliminar', [App\Http\Controllers\TSolicitudController::class, 'eliminar'])->name('solicitud.eliminar');

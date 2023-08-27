@@ -128,6 +128,9 @@
             </ul>
             @if (Route::has('login'))
                 <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('solicitud') }}">Solicitud de Gestiones</a>
+                  </li>
                     @auth
                         <li class="nav-item">
                             <a href="{{ url('/home') }}" class="nav-link">Home</a>

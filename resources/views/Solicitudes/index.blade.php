@@ -4,7 +4,50 @@
     <h1 class="h2">Gestión de solicitudes</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
-            <a class="btn btn-sm btn-outline-secondary" href="{{ route('solicitud.create') }}"> Crear solicitud <i class='bx bxs-user-plus'></i></a>
+            <a class="btn btn-sm btn-outline-secondary" href="{{ route('solicitud.create') }}"> Crear solicitud <i class='bx bxs-user-plus'></i></a>&nbsp;
+            <a class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#FilterSolicitud"><i class='bx bx-filter' ></i></a>
+            <!-- Modal -->
+            <div class="modal fade" id="FilterSolicitud" tabindex="-1" aria-labelledby="FilterSolicitud" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Filtrado avanzado de solicitudes</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('solicitud.filter') }}">
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="Fecha" class="form-label is-required">Fecha de la solicitud</label>
+                                    <input type="date" class="form-control" id="Fecha" name="Fecha">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="Estatus" class="form-label is-required">Estatus</label>
+                                <div class="col">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="1" checked>
+                                        <label class="form-check-label" for="Estatus">Pendiente</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="2">
+                                        <label class="form-check-label" for="Estatus">En trámite</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Estatus" id="Estatus" value="3">
+                                        <label class="form-check-label" for="Estatus">Terminado</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Filtrar Solicitudes</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

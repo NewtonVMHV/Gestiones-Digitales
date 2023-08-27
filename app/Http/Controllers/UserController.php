@@ -22,10 +22,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $data = User::paginate(10);
+        $searchUsuario = $request->SearchUsuario;
+        $data = User::where('email','Like','%'.$searchUsuario.'%')->paginate(10);
         return view('Administrador.Usuario.index',compact('data'));
     }
 
