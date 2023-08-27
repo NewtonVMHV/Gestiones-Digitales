@@ -1,7 +1,7 @@
 @extends('layouts.sliderbar')
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Gestión de solicitudes</h1>
+    <h1 class="h2"><a href="{{ route('solicitud.index') }}"><i class='bx bx-chevron-left-circle'></i></a>Gestión de solicitudes</h1>
 </div>
 <div class="table-responsive">
     <table id="tabla" class="table table-striped table-sm">
