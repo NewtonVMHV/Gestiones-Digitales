@@ -47,7 +47,7 @@ crossorigin=""/>
     <div class="row mb-3">
         <div class="col">
             <label for="address" class="control-label is-required">Dirección</label>
-            <textarea id="address" class="form-control" name="address" rows="4">{{ $tSolicitud->address }}</textarea>
+            <input type="text" class="form-control" id="address" name="address" value="{{ $tSolicitud->address }}" required>
         </div>
     </div>
     <div class="row mb-3">

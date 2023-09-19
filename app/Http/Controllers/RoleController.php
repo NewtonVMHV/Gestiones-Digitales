@@ -54,10 +54,10 @@ class RoleController extends Controller
             'name' => 'required|unique:roles,name',
             'permission' => 'required',
         ]);
-    
+
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
-    
+
         return redirect()->route('roles.index')->with('success','Role created successfully');
     }
 
@@ -71,7 +71,7 @@ class RoleController extends Controller
         $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
             ->where("role_has_permissions.role_id",$id)
             ->get();
-    
+
         return view('Administrador.Roles.show',compact('role','rolePermissions'));
     }
 
@@ -86,7 +86,7 @@ class RoleController extends Controller
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
-    
+
         return view('Administrador.Roles.edit',compact('role','permission','rolePermissions'));
     }
 
@@ -100,14 +100,19 @@ class RoleController extends Controller
             'name' => 'required',
             'permission' => 'required',
         ]);
-    
+
         $role = Role::find($id);
         $role->name = $request->input('name');
         $role->save();
-    
+
         $role->syncPermissions($request->input('permission'));
-    
+
         return redirect()->route('roles.index')->with('success','Role updated successfully');
+    }
+
+    public function eliminar(string $id){
+        $role = Role::find($id);
+        return view('Administrador.Roles.eliminar',compact('role'));
     }
 
     /**

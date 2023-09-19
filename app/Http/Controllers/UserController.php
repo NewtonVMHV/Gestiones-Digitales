@@ -52,13 +52,13 @@ class UserController extends Controller
             'password' => 'required|same:confirm-password',
             'roles' => 'required'
         ]);
-    
+
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-    
+
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')->with('success','User created successfully');
     }
 
@@ -81,7 +81,7 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::all();
         $userRole = $user->roles->pluck('name','name')->all();
-    
+
         return view('Administrador.Usuario.edit',compact('user','roles','userRole'));
     }
 
@@ -97,21 +97,26 @@ class UserController extends Controller
             'password' => 'same:confirm-password',
             'roles' => 'required'
         ]);
-    
+
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }else{
-            $input = Arr::except($input,array('password'));    
+            $input = Arr::except($input,array('password'));
         }
-    
+
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-    
+
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')->with('success','User updated successfully');
+    }
+
+    public function eliminar(string $id){
+        $user = User::find($id);
+        return view('Administrador.Usuario.eliminar',compact('user'));
     }
 
     /**

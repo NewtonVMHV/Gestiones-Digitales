@@ -33,7 +33,7 @@
                             <a class="btn btn-primary" href="{{ route('roles.edit',$item->id) }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class='bx bxs-edit'></i></a>
                         @endcan
                         @can('role-delete')
-                            <a class="btn btn-danger" href="" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                            <a class="btn btn-danger" href="{{route('roles.eliminar',$item->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
                                 <i class='bx bxs-trash-alt' ></i>
                             </a>
                         @endcan
